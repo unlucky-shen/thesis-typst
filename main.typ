@@ -11,5 +11,5 @@
 )
 
 // Include chapter files
-#include "chapters/intro.typ"
-#include "chapters/literature.typ"
+#include "chapters/01_intro.typ"
+#include "chapters/02_literature.typ"

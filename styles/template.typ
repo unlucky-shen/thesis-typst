@@ -1,28 +1,49 @@
 #let project(university: "", department: "", title: "", author: "", date: "", body) = {
+  
   // General Formatting
   set text(font: "Times New Roman", size: 12pt)
-  set par(leading: 12pt, justify: true)
-  set page(margin: 1in, numbering: "1", number-align: center)
+  set par(
+    leading: 1.5em,
+    spacing: 1.5em,
+    justify: true
+  ) 
+  set page(
+    margin: 1in,
+    numbering: "1",
+    number-align: center
+  )
+  set heading(numbering: "1.1")
 
-  // Front Page Logic
+  // Front Page
   page(numbering: none)[
     #set align(center)
     #upper(university)
-    #v(2.5cm) // Requirement: 2.5cm from University Name
+    #v(2.5cm)
     #department
-    #v(3in)    // Requirement: 3" from Dept
+    #v(1fr)
     #text(size: 14pt, weight: "bold")[#upper(title)]
-    #v(1.5in)  // Requirement: 1.5" from Title
+    #v(1fr)
     #author
     #align(bottom)[#date]
   ]
 
-  // Chapter Formatting (CHAPTER 1 : TITLE)
+  // Chapters
   show heading.where(level: 1): it => {
-    pagebreak()
+    pagebreak(weak: true)
     set align(center)
-    strong[CHAPTER #counter(heading).display() : #upper(it.body)]
-    v(1in) // Requirement: 1 inch space before text
+    set text(size: 12pt, weight: "bold")
+    block(upper([
+      Chapter #counter(heading).display() : #it.body
+    ]))
+    v(1em)
+  }
+
+  // Subchapters
+  show heading.where(level: 2): it => {
+    set text(size: 12pt, weight: "bold")
+    // This displays the numbering (e.g., 1.1) followed by the title
+    block([#counter(heading).display() #it.body])
+    v(0.5em)
   }
   
   body
