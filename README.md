@@ -1,2 +1,3 @@
 # um-thesis-typst
-Universiti Malaya Master's Degree thesis typst template 
+
+Somebody help me with this dawg T_T
