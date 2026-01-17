@@ -17,14 +17,18 @@
   // Front Page
   page(numbering: none)[
     #set align(center)
-    #upper(university)
-    #v(2.5cm)
-    #department
+    #set text(weight: "bold")
+    #v(1.5in)
+    #upper(title)
     #v(1fr)
-    #text(size: 14pt, weight: "bold")[#upper(title)]
+    #upper(author)
     #v(1fr)
-    #author
-    #align(bottom)[#date]
+    #upper(department) \
+    #upper(university) \
+    KUALA LUMPUR
+    #v(2cm)
+    #date
+    #v(0.5in)
   ]
 
   // Chapters
