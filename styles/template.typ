@@ -35,7 +35,7 @@
     block(upper([
       Chapter #counter(heading).display() : #it.body
     ]))
-    v(1em)
+    v(1.5em)
   }
 
   // Subchapters
